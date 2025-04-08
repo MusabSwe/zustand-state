@@ -8,10 +8,11 @@ const Counter = () => {
 
     return (
         <div className="">
-            <h1>{count}</h1>
-            <div className="space-x-3 bg-red w-20 h-20">
-                <button onClick={() => inc(10)}>Increment</button>
-                <button onClick={() => dec(5)}>Decrement</button>
+
+            <div className="flex space-x-4 justify-center h-100 items-center">
+                <button className="cursor-pointer text-white font-bold bg-red-400 p-2 rounded" onClick={() => dec(5)}>Decrement</button>
+                <h1 className="text-gray-400">{count}</h1>
+                <button className="cursor-pointer text-white font-bold bg-green-400 p-2 rounded" onClick={() => inc(10)}>Increment</button>
             </div>
         </div>
     )
