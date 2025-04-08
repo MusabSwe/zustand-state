@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 // TS types
 type CounterState = {
@@ -20,11 +21,16 @@ type TodoState = {
 // Hooks
 
 // counter custom hook
-export const useStore = create<CounterState>((set) => ({
-  count: 0,
-  increment: (num) => set((state) => ({ count: state.count + num })),
-  decrement: (num) => set((state) => ({ count: state.count - num })),
-}));
+export const useStore = create<CounterState>()(
+  persist(
+    (set) => ({
+      count: 0,
+      increment: (num) => set((state) => ({ count: state.count + num })),
+      decrement: (num) => set((state) => ({ count: state.count - num })),
+    }),
+    { name: 'counter-store' }
+  )
+);
 
 
 export const useTodoStore = create<TodoState>((set) => ({
