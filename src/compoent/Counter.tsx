@@ -1,4 +1,4 @@
-import useStore from "../store/useStore";
+import { useStore } from "../Store/Store";
 
 const Counter = () => {
 
@@ -9,7 +9,7 @@ const Counter = () => {
     return (
         <div className="">
 
-            <div className="flex space-x-4 justify-center h-100 items-center">
+            <div className="flex space-x-4 justify-center h-40 items-center">
                 <button className="cursor-pointer text-white font-bold bg-red-400 p-2 rounded" onClick={() => dec(5)}>Decrement</button>
                 <h1 className="text-gray-400">{count}</h1>
                 <button className="cursor-pointer text-white font-bold bg-green-400 p-2 rounded" onClick={() => inc(10)}>Increment</button>
