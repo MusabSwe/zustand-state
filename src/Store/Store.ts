@@ -13,7 +13,8 @@ type TodoState = {
   loading: boolean;
   error: string;
   fetchTodos: () => void;
-  addTodo: (todo: any) => void
+  addTodo: (todo: any) => void;
+  removeTodo: (id: number) => void;
 }
 
 // Hooks
@@ -43,5 +44,6 @@ export const useTodoStore = create<TodoState>((set) => ({
       set({ error: e.message, loading: false });
     }
   },
-  addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] }))
+  addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
+  removeTodo: (id) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) }))
 }))
